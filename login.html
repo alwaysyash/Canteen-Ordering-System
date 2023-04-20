@@ -1,57 +1,166 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>VishwaFoodie | Vendor Login</title>
-    <!-- <script>
-        let input=document.forms["myForm"]["pass"].value;
-        function validateForm() {
-        let x = document.forms["myForm"]["pass"].value;
-        let x1 = document.forms["myForm"]["email"].value;
-        if (x== "") {
-        alert("Password is required");
-        return false;
-        }
-        if (x1== "") {
-        alert("Email is required");
-        return false;
-        }
-    
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>VishwaFoodie | Vendor Login</title>
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseApp = firebase.initializeApp({
+      apiKey: "AIzaSyD5TKCHJrdQan6mrfk4NmuaLYhzFx_G5AI",
+      authDomain: "vihwafoodie.firebaseapp.com",
+      projectId: "vihwafoodie",
+      storageBucket: "vihwafoodie.appspot.com",
+      messagingSenderId: "811791488279",
+      appId: "1:811791488279:web:248ed320159d0debd49352",
+      measurementId: "G-LMSRJT4128"
+    });
+
+    const db = firebaseApp.firestore();
+    const auth = firebaseApp.auth();
+
+    // const register = () => {
+    //   const email = document.getElementById('email').value
+    //   const passsword = document.getElementById('password').value
+    //   console.log(email, passsword)
+
+    //   auth.createUserWithEmailAndPassword(email, passsword)
+    //     .then((res) => {
+    //       console.log(res.user)
+    //     })
+    //     .catch((err) => {
+    //       console.log(err.code)
+    //       console.log(err.message)
+    //     })
+
+    const login = () => {
+      const email = document.getElementById('email').value
+      const passsword = document.getElementById('password').value
+      console.log(email, passsword)
+
+      auth.signInWithEmailAndPassword(email, passsword)
+        .then((res) => {
+          console.log(res.user)
+        })
+        .catch((err) => {
+          console.log(err.code)
+          console.log(err.message)
+        })
+
     }
+
+    // const saveData = () => {
+    //   const email = document.getElementById('email').value
+    //   const passsword = document.getElementById('password').value
+
+    //   db.collection('users')
+    //     .add({
+    //       email: email,
+    //       password: passsword
+    //     })
+    //     .then((docRef) => {
+    //       console.log("Document written with ID:", docRef.id);
+    //     })
+    //     .catch((err) => {
+    //       console.error("Error addinng: ", err);
+
+    //     })
+    // }
+
+    // const readData=()=>
+    // {
+    //   db.collection('users')
+    //   .get()
+    //   .then((data)=>{
+    //     console.log(data.docs.map((item)=>
+    //     {
+    //       return {...item.data(),id:item.id}
+    //     }
+    //       ))
+    //     }
         
-        </script> -->
+    //   )
+    // }
 
-    <style>
-      
-        .btn1
-        {
-            border: none;
-            outline: none;
-            height: 50px;
-            width: 200px;
-            background-color:rgb(116, 0, 207);
-            color: white;
-            border-radius: 4px;
-            font-weight:bold ;
+    // const updateData=()=>
+    // {
+    //   db.collection('users').doc("O5inhrug13Ntol7UnLj6")
+    //   .update(
+    //     {
+    //       password:"abcdef"
+    //     }
+    //   )
+    //   .then(()=>
+    //   alert("Data Updated"))
 
-        }
-        .btn1:hover
-        {
-            background: white;
-            border: 1px solid;
-            color:rgb(116, 0, 207);
-        }
-    </style>
-  </head>
-  <body>
-   <!-- Section: Design Block -->
-<section class="text-center">
+    // }
+
+    // const deleteData=()=>
+    // {
+    //   db.collection('users').doc("O5inhrug13Ntol7UnLj6")
+    //   .delete()
+    //   .then(()=>
+    //   alert("Data Deleted"))
+
+    // }
+
+
+    // let input = document.forms["myForm"]["password"].value;
+
+    // function validateForm() {
+    //   let x = document.forms["myForm"]["password"].value;
+    //   let x1 = document.forms["myForm"]["email"].value;
+    //   if (x == "" || x1 == "") {
+    //     if (x == "") {
+    //       alert("Password is required");
+    //       return false;
+    //     }
+    //     if (x1 == "") {
+    //       alert("Email is required");
+    //       return false;
+    //     }
+    //   } else {
+    //     login();
+    //   }
+
+
+    // }
+  </script>
+
+  <style>
+    .btn1 {
+      border: none;
+      outline: none;
+      height: 50px;
+      width: 200px;
+      background-color: rgb(116, 0, 207);
+      color: white;
+      border-radius: 4px;
+      font-weight: bold;
+
+    }
+
+    .btn1:hover {
+      background: white;
+      border: 1px solid;
+      color: rgb(116, 0, 207);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Section: Design Block -->
+  <section class="text-center">
     <!-- Background  -->
     <div class="p-5 bg-image" style="
           background-image: url('3d-render-food-order-delivery-smartphone-mobile-illustration-yellow-background_270292-847-transformed-removebg-preview-transformed.png');
@@ -63,46 +172,47 @@
           
           "></div>
     <!-- Background -->
-  
-    <div class="card mx-5 mx-md-5 shadow-5-strong" 
-        style="
+
+    <div class="card mx-5 mx-md-5 shadow-5-strong" style="
           margin-top: -100px;
           background: hsla(0, 0%, 100%, 0.8);
           box-shadow:  0px 0px 40px 40px rgba(0, 0, 0, 0.2);
           backdrop-filter: blur(30px);
           ">
       <div class="card-body py-5 px-md-5" style="height: 70vh;">
-  
+
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
             <h2 class="fw-bold mb-5">Vendor Login</h2>
 
-            
-            <form class = "px-5 " name="myForm" class="container" action=""  method="post">
 
-                <div class ="form-row d-flex justify-content-center">
-                    <div class="col-lg-7">
-                        <input type ="email" name="email" id="email" placeholder="Enter valid User ID" class = "form-control my-3 p-4 " >
-                    </div>
-                    </div>
-                <div class ="form-row d-flex justify-content-center">
-                    <div class="col-lg-7">
-                    <input type ="password" name="pass" placeholder="Enter Password" class = "form-control my-3 p-4">
+            <form class="px-5 " name="myForm" class="container" action="" method="post">
+
+              <div class="form-row d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <input type="email" name="email" id="email" placeholder="Enter valid Email"
+                    class="form-control my-3 p-4 ">
                 </div>
-                    </div>
+              </div>
+              <div class="form-row d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <input type="password" name="password" id="password" placeholder="Enter Password"
+                    class="form-control my-3 p-4">
+                </div>
+              </div>
 
-                    <!-- Button -->
-                <div class ="form-row d-flex justify-content-center">
-                    <div class="col-lg-7">
-                    <button type ="button" onclick=" return validateForm()" class="btn1 mt-3 mb-5 " >Login </button>
-                    <!-- <p>Go back to
+              <!-- Button -->
+              <div class="form-row d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <button type="button" onclick="login()" class="btn1 mt-3 mb-5 ">Login </button>
+                  <!-- <p>Go back to
                     <a href="#" class="link-dark ">Login Page.</a></p> -->
                 </div>
-                  <!-- Button -->
-                   
-                
-            
-                </div>
+                <!-- Button -->
+
+
+
+              </div>
             </form>
           </div>
         </div>
@@ -110,12 +220,15 @@
     </div>
   </section>
   <!-- Section: Design Block -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
-  </body>
+</body>
+
 </html>
