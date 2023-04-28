@@ -55,25 +55,27 @@ getDocs(collRef)
 
     let order_filter = [];
     all_orders.forEach((odr) => {
-      if (odr.canteen_id === valuePassed && (odr.status==="delivered" || odr.status==="cancelled")) 
-      {order_filter.push(odr);}
-
-
+      if (
+        odr.canteen_id === valuePassed &&
+        (odr.status === "delivered" || odr.status === "cancelled")
+      ) {
+        order_filter.push(odr);
+      }
     });
-    console.log(order_filter)
+    console.log(order_filter);
 
     // Dynamic card code
     const cardsContainer = document.getElementById("row");
-    
+
     let number = 1;
     order_filter.forEach((order) => {
-      console.log(order.status)
+      console.log(order.status);
 
       // Create card element
       const card = document.createElement("div");
       card.classList.add("card", "border-success", "mb-3");
-      card.style.minWidth = "80%";
-      card.style.maxWidth = "80%";
+      card.style.minWidth = "60%";
+      card.style.maxWidth = "60%";
       card.style.borderRadius = "10px";
 
       // Create card header
@@ -138,15 +140,29 @@ getDocs(collRef)
         "d-flex",
         "justify-content-center"
       );
-       
+
       const orderID = document.createElement("h6");
       orderID.textContent = `Order Number: ${order.id}`;
       cardFooter.appendChild(orderID);
       card.appendChild(cardFooter);
       cardsContainer.appendChild(card);
-      
-
     });
+    document
+      .getElementById("homenav")
+      .addEventListener("click", redirectToHome, false);
+    function redirectToHome() {
+      window.location.href =
+        "/index.html?value=" + encodeURIComponent(valuePassed);
+      return false;
+    }
+
+    document
+      .getElementById("lognav")
+      .addEventListener("click", redirectToLogin, false);
+    function redirectToLogin() {
+      window.location.href = "/login.html";
+      return false;
+    }
   })
 
   .catch((err) => {
