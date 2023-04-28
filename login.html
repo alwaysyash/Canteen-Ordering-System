@@ -43,14 +43,19 @@
     //       console.log(err.message)
     //     })
 
+    
     const login = () => {
-      const email = document.getElementById('email').value
+      const canteenid = document.getElementById('canteenid').value
       const passsword = document.getElementById('password').value
-      console.log(email, passsword)
+      const canteenidlow=canteenid.toLowerCase()+'@vishwafoodie.com'
+      console.log(canteenidlow, passsword)
 
-      auth.signInWithEmailAndPassword(email, passsword)
+      auth.signInWithEmailAndPassword(String(canteenidlow), passsword)
         .then((res) => {
           console.log(res.user)
+
+          // redirect to a different page with the value in the query string
+          window.location.href = '/index.html?value=' + encodeURIComponent(canteenid);
         })
         .catch((err) => {
           console.log(err.code)
@@ -115,7 +120,7 @@
 
               <div class="form-row d-flex justify-content-center">
                 <div class="col-lg-7">
-                  <input type="email" name="email" id="email" placeholder="Enter valid Email"
+                  <input type="text" name="canteenid" id="canteenid" placeholder="Enter valid Canteen ID"
                     class="form-control my-3 p-4 ">
                 </div>
               </div>
@@ -165,7 +170,7 @@
 
 
 
-
+<!-- 
 //unused js
 
 // const saveData = () => {
@@ -243,4 +248,4 @@
   //   }
 
 
-  // }
+  // } -->
