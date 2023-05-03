@@ -138,7 +138,7 @@ getDocs(collRef)
       );
 
       // ordersContainer.appendChild(card);
-      if (order.status == "placed") {
+      if (order.status == "Placed") {
         const markInProgressButton = document.createElement("button");
         markInProgressButton.classList.add("btn1", "mt-1", "mb-1");
         markInProgressButton.textContent = "Mark In-progress";
@@ -146,7 +146,7 @@ getDocs(collRef)
           const orderId = order.id;
           const odrRef = doc(db, "orders", orderId);
           updateDoc(odrRef, {
-            status: "progress",
+            status: "In Progress",
           })
             .then(() => {
               console.log("Order status updated successfully!");
@@ -161,7 +161,7 @@ getDocs(collRef)
         upcomingContainer.appendChild(card);
       }
 
-      if (order.status == "progress") {
+      if (order.status == "In Progress") {
         const markReadyButton = document.createElement("button");
         markReadyButton.classList.add("btn1", "mt-1", "mb-1");
         markReadyButton.textContent = "Mark Ready";
@@ -169,7 +169,7 @@ getDocs(collRef)
           const orderId = order.id;
           const odrRef = doc(db, "orders", orderId);
           updateDoc(odrRef, {
-            status: "ready",
+            status: "Ready",
           })
             .then(() => {
               console.log("Order status updated successfully!");
@@ -184,7 +184,7 @@ getDocs(collRef)
 
         progressContainer.appendChild(card);
       }
-      if (order.status == "ready") {
+      if (order.status == "Ready") {
         const deliveredButton = document.createElement("button");
         deliveredButton.classList.add("btn1", "mt-1", "mb-1", "mx-3");
         deliveredButton.textContent = "Delivered";
@@ -192,7 +192,7 @@ getDocs(collRef)
           const orderId = order.id;
           const odrRef = doc(db, "orders", orderId);
           updateDoc(odrRef, {
-            status: "delivered",
+            status: "Completed",
           })
             .then(() => {
               console.log("Order status updated successfully!");
@@ -211,7 +211,7 @@ getDocs(collRef)
           const orderId = order.id;
           const odrRef = doc(db, "orders", orderId);
           updateDoc(odrRef, {
-            status: "cancelled",
+            status: "Cancelled",
           })
             .then(() => {
               console.log("Order status updated successfully!");

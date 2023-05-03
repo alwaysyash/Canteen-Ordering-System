@@ -57,7 +57,7 @@ getDocs(collRef)
     all_orders.forEach((odr) => {
       if (
         odr.canteen_id === valuePassed &&
-        (odr.status === "delivered" || odr.status === "cancelled")
+        (odr.status === "Completed" || odr.status === "Cancelled")
       ) {
         order_filter.push(odr);
       }
