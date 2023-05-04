@@ -37,7 +37,7 @@ d1.classList.add("row", "justify-content-center");
 const table = document.createElement("table");
 const thead = document.createElement("thead");
       const headrow = document.createElement("tr");
-      const headercols = ['Order ID', 'Order Status', 'Items', 'Total Price']
+      const headercols = ['Token Number','Order ID', 'Order Time','Order Status', 'Items', 'Total Price']
       headercols.forEach((col)=>{
         const column = document.createElement("th");
         column.textContent = col;
@@ -85,20 +85,24 @@ getDocs(collRef)
     });
     console.log(order_filter);
 
-    // Dynamic card code
-    
-
+ 
+  
     let number = 1;
     order_filter.forEach((order) => {
       console.log(order.status);
       //Create table
       const tr = document.createElement('tr');
+      const tokenNo = document.createElement('td');
       const orderID = document.createElement('td');
+      const orderTime=document.createElement('td');
       const orderStatus = document.createElement('td');
       const orderItems = document.createElement('td');
       const total = document.createElement('td');
+
+      tokenNo.textContent=order.token_number;
       orderID.textContent = order.id;
       orderStatus.textContent = order.status;
+      orderTime.textContent=order.creation_time.toDate();
       let items = [];
       var price = 0;
       order.food_items.forEach((item) => {
@@ -107,7 +111,9 @@ getDocs(collRef)
       })
       orderItems.textContent = items.join(', ');
       total.textContent = price;
+      tr.appendChild(tokenNo);
       tr.appendChild(orderID);
+      tr.appendChild(orderTime);
       console.log('appended 1');
       tr.appendChild(orderStatus);
       console.log('appended 2');

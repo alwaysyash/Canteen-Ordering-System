@@ -86,8 +86,8 @@ getDocs(collRef)
       const orderNumberHeading = document.createElement("h5");
       orderNumberHeading.style.fontWeight = "bold";
       // orderNumberHeading.textContent = `Order Number: ${order.canteen_id}`;
-      orderNumberHeading.textContent = `Order Number: ${number}`;
-      number++;
+      orderNumberHeading.textContent = `Order Number: ${order.token_number}`;
+      
       cardHeader.appendChild(orderNumberHeading);
       card.appendChild(cardHeader);
 
