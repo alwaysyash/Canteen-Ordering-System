@@ -123,90 +123,10 @@ getDocs(collRef)
       }
       tbody.appendChild(tr);
       
-
-
-
-      //create table header
-      
-
-      // Create card element
-    //   const card = document.createElement("div");
-    //   card.classList.add("card", "border-success", "mb-3");
-    //   card.style.minWidth = "60%";
-    //   card.style.maxWidth = "60%";
-    //   card.style.borderRadius = "10px";
-
-      // Create card header
-    //   const cardHeader = document.createElement("div");
-    //   cardHeader.classList.add(
-    //     "card-header",
-    //     "bg-transparent",
-    //     "border-dark",
-    //     "my-1"
-    //   );
-
-    //   const orderNumberHeading = document.createElement("h5");
-    //   orderNumberHeading.style.fontWeight = "bold";
-    //   // orderNumberHeading.textContent = `Order Number: ${order.canteen_id}`;
-    //   orderNumberHeading.textContent = `Order Number: ${number} (${order.status})`;
-    //   number++;
-    //   cardHeader.appendChild(orderNumberHeading);
-    //   card.appendChild(cardHeader);
-
-      // Create card body
-    //   const cardBody = document.createElement("div");
-    //   cardBody.classList.add("card-body", "text-center");
-    //   const table = document.createElement("table");
-    //   table.classList.add("table", "table-bordered", "table-hover");
-    //   const thead = document.createElement("thead");
-    //   const headerRow = document.createElement("tr");
-    //   const headerColumns = ["Item #", "Name", "Quantity"];
-    //   headerColumns.forEach((columnTitle) => {
-    //     const column = document.createElement("th");
-    //     column.textContent = columnTitle;
-    //     headerRow.appendChild(column);
-    //   });
-    //   thead.appendChild(headerRow);
-    //   table.appendChild(thead);
-
-    //   const tbody = document.createElement("tbody");
-    //   order.food_items.forEach((item, index) => {
-    //     // console.log(item);
-    //     const row = document.createElement("tr");
-    //     const itemNumber = document.createElement("th");
-    //     itemNumber.setAttribute("scope", "row");
-    //     itemNumber.textContent = index + 1;
-    //     const itemName = document.createElement("td");
-    //     itemName.textContent = item.menu_item.name;
-    //     const itemQuantity = document.createElement("td");
-    //     itemQuantity.textContent = item.quantity;
-    //     row.appendChild(itemNumber);
-    //     row.appendChild(itemName);
-    //     row.appendChild(itemQuantity);
-    //     tbody.appendChild(row);
-    //   });
-    //   table.appendChild(tbody);
-    //   cardBody.appendChild(table);
-    //   card.appendChild(cardBody);
-
-      // Create card footer
-    //   const cardFooter = document.createElement("div");
-    //   cardFooter.classList.add(
-    //     "card-footer",
-    //     "bg-transparent",
-    //     "border-dark",
-    //     "d-flex",
-    //     "justify-content-center"
-    //   );
-
-    //   const orderID = document.createElement("h6");
-    //   orderID.textContent = `Order Number: ${order.id}`;
-    //   cardFooter.appendChild(orderID);
-    //   card.appendChild(cardFooter);
     });
     table.appendChild(tbody);
     d1.appendChild(table);
-    cardsContainer.appendChild(d1);
+    cardsContainer.appendChild(table);
     document
       .getElementById("homenav")
       .addEventListener("click", redirectToHome, false);
