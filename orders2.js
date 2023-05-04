@@ -106,7 +106,7 @@ getDocs(collRef)
       let items = [];
       var price = 0;
       order.food_items.forEach((item) => {
-        items.push(item.menu_item.name);
+        items.push(item.menu_item.name+' x '+item.quantity+' ('+item.menu_item.price+'Rs'+')');
         price += item.menu_item.price;
       })
       orderItems.textContent = items.join(', ');
